@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<script>
+			function load() {
+				var urlParams = new URLSearchParams(window.location.search);
+
+				var id = urlParams.get("clipId");
+
+				showVideo(id);
+			}
+
+			function showVideo(id) {
+				var video = document.getElementById("video");
+				video.src = `https://clips.twitch.tv/embed?clip=${id}&parent=justedave.tv&autoplay=true&muted=false`;
+			}
+		</script>
+		<style>
+			iframe {
+				background: transparent;
+				border: none;
+			}
+
+			body {
+				overflow: hidden;
+				margin: 0;
+				padding: 0;
+			}
+
+			#videoContainer {
+				position: relative;
+				width: 1920px;
+				height: 1080px;
+			}
+			#video {
+				width: 100%;
+				height: 100%;
+				position: relative;
+			}
+		</style>
+	</head>
+	<body onload="load();">
+		<div id="videoContainer">
+			<iframe id="video"></iframe>
+		</div>
+	</body>
+</html>
